@@ -1,0 +1,14 @@
+[
+  {"id":1, "name":"User 1", "surname": "demo 0", "email": "email@test.com1", "type": 1, "isActive": true},
+  {"id":2, "name":"User 3", "surname": "demo 1", "email": "email@test.com4", "type": 1, "isActive": true},
+  {"id":3, "name":"User 2", "surname": "demo 2", "email": "email@test.com5", "type": 2, "isActive": true},
+  {"id":4, "name":"User 3", "surname": "demo 3", "email": "email@test.com6", "type": 1, "isActive": true},
+  {"id":5, "name":"User 4", "surname": "demo 4", "email": "email@test.com7", "type": 3, "isActive": true},
+  {"id":6, "name":"User 5", "surname": "demo 5", "email": "email@test.com8", "type": 1, "isActive": true},
+  {"id":7, "name":"User 6", "surname": "demo 6", "email": "email@test.com9", "type": 1, "isActive": true},
+  {"id":12, "name":"User 7", "surname": "demo 7", "email": "email@test.com10", "type": 1, "isActive": true},
+  {"id":8, "name":"User 8", "surname": "demo 8", "email": "email@test.com11", "type": 3, "isActive": true},
+  {"id":9, "name":"User 9", "surname": "demo 9", "email": "email@test.com12", "type": 2, "isActive": true},
+  {"id":10, "name":"User 10", "surname": "demo 10", "email": "email@test.com13", "type": 1, "isActive": true},
+  {"id":11, "name":"User 11", "surname": "demo 11", "email": "email@test.com14", "type": 1, "isActive": true}
+]
