@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+// $gutter: 1rem; //for primeflex grid system
+// @import "assets/layout/styles/layout/layout.scss";
+
+html {
+  font-size: 14px;
+}
+
+/* PrimeNG */
+@import "primeflex/primeflex.css";
+@import "primeicons/primeicons.css";
+// @import "primeng/resources/themes/aura-light-blue/theme.css";
+@import "./assets/layout/styles/theme/aura-light-indigo/theme.css";
+@import "primeng/resources/primeng.css";

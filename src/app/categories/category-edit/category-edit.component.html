@@ -1,0 +1,57 @@
+<div class="flex flex-column">
+  <form [formGroup]="categoryForm">
+  <div class="flex grid m-0 align-items-center">
+    <app-form-field-molecule
+    [labelText]="'Nombre'"
+    [labelFor]="'nombre'"
+    [required]="true"
+    formName="name"
+    [group]="categoryForm"
+    class="col-4"
+    [loading]="loading"
+    >
+    </app-form-field-molecule>
+    <app-form-field-molecule
+    [labelText]="'Descripción'"
+    [labelFor]="'descripcion'"
+    [required]="true"
+    formName="description"
+    [group]="categoryForm"
+    class="col-4"
+    [loading]="loading"
+    >
+    </app-form-field-molecule>
+    <app-form-field-molecule
+    [labelText]="'Imagen'"
+    [labelFor]="'imagen'"
+    [required]="true"
+    formName="image"
+    [group]="categoryForm"
+    class="col-4"
+    [loading]="loading"
+    >
+    </app-form-field-molecule>
+
+    <!-- <div class="field col-12">
+      <app-label-atom 
+        [text]="'Tipo usuario'" 
+        [forId]="'tipo'" 
+        [class]="'mb-2 block'" 
+        [required]="true">
+      </app-label-atom>
+      
+      @if(loading) {
+        <p-skeleton height="2rem"></p-skeleton>
+      } @else {
+        <p-selectButton id="tipo" [options]="tipos" formControlName="type" optionLabel="name" optionValue="code"></p-selectButton>
+      }
+
+    </div> -->
+
+  </div>
+  <div class="flex justify-content-end gap-2">
+    <p-button label="Cancelar" severity="secondary" (onClick)="closeDialog()" />
+    <p-button label="Guardar" (onClick)="saveCategory()" [disabled]="categoryForm.invalid" />
+  </div>
+  </form>
+</div>
