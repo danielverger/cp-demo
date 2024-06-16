@@ -5,12 +5,9 @@ import { CheckboxModule } from 'primeng/checkbox';
 @Component({
   selector: 'app-checkbox-atom',
   standalone: true,
-  imports: [
-    CheckboxModule,
-    ReactiveFormsModule
-  ],
+  imports: [CheckboxModule, ReactiveFormsModule],
   templateUrl: './checkbox-atom.component.html',
-  styleUrl: './checkbox-atom.component.scss'
+  styleUrl: './checkbox-atom.component.scss',
 })
 export class CheckboxAtomComponent {
   @Input() checkboxId?: string;

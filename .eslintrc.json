@@ -8,11 +8,15 @@
       "files": [
         "*.ts"
       ],
+      // "parserOptions": {
+      //   "project": true // Specify it only for TypeScript files
+      //   // or `project: true` in typescript-eslint version >= 5.52.0
+      // },
       "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
-        "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates"
+        "plugin:@angular-eslint/recommended"
+        // "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
         "@angular-eslint/directive-selector": [
@@ -42,6 +46,14 @@
         "plugin:@angular-eslint/template/accessibility"
       ],
       "rules": {}
+    },
+    {
+      "files": [
+        "*.ts"
+      ],
+      "extends": [
+        "plugin:@ngrx/recommended"
+      ]
     }
   ],
   "extends": [

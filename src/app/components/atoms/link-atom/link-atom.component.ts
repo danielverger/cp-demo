@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './link-atom.component.html',
-  styleUrl: './link-atom.component.scss'
+  styleUrl: './link-atom.component.scss',
 })
 export class LinkAtomComponent {
   @Input() text: string = '';

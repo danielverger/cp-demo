@@ -10,13 +10,13 @@ const meta: Meta<AvatarAtomComponent> = {
   argTypes: {
     size: {
       options: ['', 'large', 'xlarge'],
-      control: { type: 'select' }
+      control: { type: 'select' },
     },
-  //   severity: {
-  //     options: ['primary', 'secondary', 'success', 'info', 'warning', 'help', 'danger'],
-  //     control: { type: 'select' }
-  //   },
-  //   disabled: { control: 'boolean' }
+    //   severity: {
+    //     options: ['primary', 'secondary', 'success', 'info', 'warning', 'help', 'danger'],
+    //     control: { type: 'select' }
+    //   },
+    //   disabled: { control: 'boolean' }
   },
   // args: { onClick: fn(), size: 'medium', disabled: false },
 };
@@ -31,5 +31,3 @@ export const Primary: Story = {
     size: 'large',
   },
 };
-
-

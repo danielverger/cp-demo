@@ -8,12 +8,18 @@ const meta: Meta<InputAtomComponent> = {
   component: InputAtomComponent,
   tags: ['autodocs'],
   argTypes: {
-    class: { control: 'text'},
-  //   labelClass: { control: 'text'},
-    required: { control: 'boolean' },
-    disabled: { control: 'boolean' }
+    class: { control: 'text' },
+    //   labelClass: { control: 'text'},
+    // required: { control: 'boolean' },
+    // disabled: { control: 'boolean' },
+    loading: { control: 'boolean' },
   },
-  args: { placeholder: 'Input', inputId: 'input', disabled: false},
+  args: {
+    placeholder: 'Input',
+    inputId: 'input',
+    // disabled: false,
+    loading: false,
+  },
   // render: (args) => ({
   //   template: `<app-label-atom>Label</app-label-atom>`
   // })
@@ -34,13 +40,8 @@ export const Invalid: Story = {
   },
 };
 
-export const Disabled: Story = {
-  args: {
-    disabled: true,
-  },
-};
-
-
-
-
-
+// export const Disabled: Story = {
+//   args: {
+//     disabled: true,
+//   },
+// };

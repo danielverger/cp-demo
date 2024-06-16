@@ -10,13 +10,21 @@ const meta: Meta<ButtonAtomComponent> = {
   argTypes: {
     size: {
       options: ['', 'small', 'large'],
-      control: { type: 'select' }
+      control: { type: 'select' },
     },
     severity: {
-      options: ['primary', 'secondary', 'success', 'info', 'warning', 'help', 'danger'],
-      control: { type: 'select' }
+      options: [
+        'primary',
+        'secondary',
+        'success',
+        'info',
+        'warning',
+        'help',
+        'danger',
+      ],
+      control: { type: 'select' },
     },
-    disabled: { control: 'boolean' }
+    disabled: { control: 'boolean' },
   },
   args: { onClick: fn(), size: undefined, disabled: false },
 };
@@ -31,7 +39,6 @@ export const Primary: Story = {
     label: 'Button',
   },
 };
-
 
 export const Large: Story = {
   args: {

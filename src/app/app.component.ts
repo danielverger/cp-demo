@@ -7,13 +7,13 @@ import { PrimeNGConfig } from 'primeng/api';
   standalone: true,
   imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
   title = 'panel-gestion';
 
   constructor(private primengConfig: PrimeNGConfig) {}
-  
+
   ngOnInit() {
     this.primengConfig.ripple = true;
   }

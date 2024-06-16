@@ -8,10 +8,9 @@ describe('TextAtomComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TextAtomComponent]
-    })
-    .compileComponents();
-    
+      imports: [TextAtomComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(TextAtomComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

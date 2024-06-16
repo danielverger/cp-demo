@@ -7,13 +7,9 @@ import { SkeletonModule } from 'primeng/skeleton';
 @Component({
   selector: 'app-form-field-molecule',
   standalone: true,
-  imports: [
-    LabelAtomComponent,
-    InputAtomComponent,
-    SkeletonModule
-  ],
+  imports: [LabelAtomComponent, InputAtomComponent, SkeletonModule],
   templateUrl: './form-field-molecule.component.html',
-  styleUrl: './form-field-molecule.component.scss'
+  styleUrl: './form-field-molecule.component.scss',
 })
 export class FormFieldMoleculeComponent {
   @Input() labelText = ''; // Texto del label
@@ -22,7 +18,7 @@ export class FormFieldMoleculeComponent {
   @Input() inputPlaceholder = ''; // Placeholder del input
   @Input() inputClass = 'w-full'; // Clases CSS adicionales del input
   @Input() labelClass = 'block mb-2'; // Clases CSS adicionales del label
-  @Input() required= false; // Indica si el campo es requerido
+  @Input() required = false; // Indica si el campo es requerido
   @Input() loading = false; // Indica si el campo es requerido
   @Input() formName = '';
 

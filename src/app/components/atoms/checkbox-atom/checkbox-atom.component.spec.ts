@@ -8,10 +8,9 @@ describe('CheckboxAtomComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CheckboxAtomComponent]
-    })
-    .compileComponents();
-    
+      imports: [CheckboxAtomComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(CheckboxAtomComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

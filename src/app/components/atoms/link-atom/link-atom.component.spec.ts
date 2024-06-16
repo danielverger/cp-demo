@@ -8,10 +8,9 @@ describe('LinkAtomComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LinkAtomComponent]
-    })
-    .compileComponents();
-    
+      imports: [LinkAtomComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(LinkAtomComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -1,14 +1,15 @@
 <div class="input" [formGroup]="group">
-  <input 
-  pInputText
-  [id]="inputId" 
-  [type]="type"
-  [placeholder]="placeholder"
-  [class]="class"
-  [required]="required"
-  [disabled]="disabled"
-  [formControlName]="formName"
-  ngDefaultControl
-  >
+  @if (loading) {
+    <p-skeleton #skeleton height="2rem"></p-skeleton>
+  } @else {
+    <input
+      pInputText
+      [id]="inputId"
+      [type]="type"
+      [placeholder]="placeholder"
+      [class]="class"
+      [disabled]="true"
+      [formControlName]="formName"
+      ngDefaultControl />
+  }
 </div>
-

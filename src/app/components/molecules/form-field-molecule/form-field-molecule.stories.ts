@@ -8,12 +8,18 @@ const meta: Meta<FormFieldMoleculeComponent> = {
   component: FormFieldMoleculeComponent,
   tags: ['autodocs'],
   argTypes: {
-  //   text: { control: 'text'},
-  //   labelClass: { control: 'text'},
+    //   text: { control: 'text'},
+    //   labelClass: { control: 'text'},
     required: { control: 'boolean' },
-    loading: { control: 'boolean' }
+    loading: { control: 'boolean' },
   },
-  args: { labelText: 'Username', required: true, labelFor: 'input', inputPlaceholder: 'Enter username', loading: false },
+  args: {
+    labelText: 'Username',
+    required: true,
+    labelFor: 'input',
+    inputPlaceholder: 'Enter username',
+    loading: false,
+  },
   // render: (args) => ({
   //   template: `<app-label-atom>Label</app-label-atom>`
   // })
@@ -28,6 +34,3 @@ export const Primary: Story = {
     // primary: true,
   },
 };
-
-
-

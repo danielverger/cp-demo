@@ -8,10 +8,9 @@ describe('AvatarAtomComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AvatarAtomComponent]
-    })
-    .compileComponents();
-    
+      imports: [AvatarAtomComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(AvatarAtomComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

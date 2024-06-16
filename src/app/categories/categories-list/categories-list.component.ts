@@ -33,15 +33,14 @@ import { finalize } from 'rxjs';
   ],
   providers: [MessageService, ConfirmationService, DialogService],
   templateUrl: './categories-list.component.html',
-  styleUrl: './categories-list.component.scss'
+  styleUrl: './categories-list.component.scss',
 })
 export class CategoriesListComponent implements OnInit {
-
   confirmationService = inject(ConfirmationService);
   messageService = inject(MessageService);
   dialogService = inject(DialogService);
   categoryService = inject(CategoryService);
-  
+
   loading = false;
   cols = [
     { field: 'name', header: 'Nombre' },
@@ -54,9 +53,10 @@ export class CategoriesListComponent implements OnInit {
     return {
       id: 0,
       name: '',
-      description:'',
+      description: '',
       image: '',
-  }});
+    };
+  });
 
   ngOnInit() {
     this.loadCategories();
@@ -65,16 +65,18 @@ export class CategoriesListComponent implements OnInit {
   loadCategories() {
     this.loading = true;
     this.categoryService.getCategories().subscribe({
-      next: (categories:Category[]) => {
+      next: (categories: Category[]) => {
         this.categories = categories;
       },
-      error: ( err ) => {
+      error: err => {
         this.loading = false;
         // this.modalService.openSnackBar(err, 'error');
         // this.modalService.closeLoading();
       },
-      complete: () => {this.loading= false}
-    }); 
+      complete: () => {
+        this.loading = false;
+      },
+    });
   }
 
   // editCategory(categoryId: number | null) {}
@@ -88,33 +90,38 @@ export class CategoriesListComponent implements OnInit {
   }
 
   deleteCategory(category: Category) {
-
     this.confirmationService.confirm({
-        message: 'Seguro que quiere eliminar la categoria ' + category.name + '?',
-        header: 'Confirmar',
-        icon: 'pi pi-exclamation-triangle',
-        accept: () => {
-            // this.categories = this.categories.filter((val) => val.id !== category.id);
-            this.categoryService.deleteCategory(category.id).pipe(
-              finalize(()=>this.loadCategories())
-            ).subscribe();
-            this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Categoria eliminada', life: 3000 });
-        }
+      message: 'Seguro que quiere eliminar la categoria ' + category.name + '?',
+      header: 'Confirmar',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        // this.categories = this.categories.filter((val) => val.id !== category.id);
+        this.categoryService
+          .deleteCategory(category.id)
+          .pipe(finalize(() => this.loadCategories()))
+          .subscribe();
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Successful',
+          detail: 'Categoria eliminada',
+          life: 3000,
+        });
+      },
     });
   }
 
   editCategory(categoryId: string | null) {
-    const ref = this.dialogService.open( CategoryEditComponent, {
+    const ref = this.dialogService.open(CategoryEditComponent, {
       dismissableMask: false,
       header: categoryId === null ? 'Nueva Categoria' : 'Modificar Categoria',
       data: {
-        categoryId
+        categoryId,
       },
-      width: '600px'
-    } )
+      width: '600px',
+    });
     ref.onClose.subscribe((reload: boolean) => {
       if (reload) {
-          this.loadCategories();
+        this.loadCategories();
       }
     });
   }

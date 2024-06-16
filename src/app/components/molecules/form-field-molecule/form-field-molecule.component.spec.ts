@@ -8,10 +8,9 @@ describe('FormFieldMoleculeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormFieldMoleculeComponent]
-    })
-    .compileComponents();
-    
+      imports: [FormFieldMoleculeComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(FormFieldMoleculeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

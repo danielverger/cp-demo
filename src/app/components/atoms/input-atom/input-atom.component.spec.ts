@@ -8,10 +8,9 @@ describe('InputAtomComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [InputAtomComponent]
-    })
-    .compileComponents();
-    
+      imports: [InputAtomComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(InputAtomComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

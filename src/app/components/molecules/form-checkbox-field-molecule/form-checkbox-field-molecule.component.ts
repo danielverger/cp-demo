@@ -6,15 +6,12 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-form-checkbox-field-molecule',
   standalone: true,
-  imports: [
-    LabelAtomComponent,
-    CheckboxAtomComponent,
-  ],
+  imports: [LabelAtomComponent, CheckboxAtomComponent],
   templateUrl: './form-checkbox-field-molecule.component.html',
-  styleUrl: './form-checkbox-field-molecule.component.scss'
+  styleUrl: './form-checkbox-field-molecule.component.scss',
 })
 export class FormCheckboxFieldMoleculeComponent {
-  @Input() checkboxId: string = ''; 
+  @Input() checkboxId: string = '';
   @Input() labelText: string = ''; // Texto del label
   @Input() labelFor: string = ''; // ID del input al que el label está asociado
   @Input() labelClass: string = ''; // Clases CSS adicionales del label

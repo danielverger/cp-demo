@@ -8,10 +8,9 @@ describe('FormCheckboxFieldMoleculeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormCheckboxFieldMoleculeComponent]
-    })
-    .compileComponents();
-    
+      imports: [FormCheckboxFieldMoleculeComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(FormCheckboxFieldMoleculeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

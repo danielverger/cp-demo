@@ -5,19 +5,14 @@ import { BadgeModule } from 'primeng/badge';
 @Component({
   selector: 'app-avatar-atom',
   standalone: true,
-  imports: [
-    AvatarModule, 
-    BadgeModule
-  ],
+  imports: [AvatarModule, BadgeModule],
   templateUrl: './avatar-atom.component.html',
-  styleUrl: './avatar-atom.component.scss'
+  styleUrl: './avatar-atom.component.scss',
 })
 export class AvatarAtomComponent {
-
   @Input()
   size?: 'large' | 'xlarge';
 
   @Input()
   style?: string;
-  
 }

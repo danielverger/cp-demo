@@ -8,11 +8,16 @@ const meta: Meta<LabelAtomComponent> = {
   component: LabelAtomComponent,
   tags: ['autodocs'],
   argTypes: {
-    text: { control: 'text'},
-    labelClass: { control: 'text'},
-    required: { control: 'boolean' }
+    text: { control: 'text' },
+    labelClass: { control: 'text' },
+    required: { control: 'boolean' },
   },
-  args: { text: 'Label', required: true, forId: 'input', labelClass: 'block text-900 text-xl font-medium mb-2' },
+  args: {
+    text: 'Label',
+    required: true,
+    forId: 'input',
+    labelClass: 'block text-900 text-xl font-medium mb-2',
+  },
   // render: (args) => ({
   //   template: `<app-label-atom>Label</app-label-atom>`
   // })
@@ -27,6 +32,3 @@ export const Primary: Story = {
     // primary: true,
   },
 };
-
-
-

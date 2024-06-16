@@ -1,0 +1,16 @@
+@if (loading) {
+  <p-skeleton #skeleton [size]="skeletonSize" height="2rem"></p-skeleton>
+} @else {
+  <p-button
+    #button
+    pRipple
+    [icon]="icon"
+    [label]="label"
+    [class]="class"
+    (onClick)="onClick.emit($event)"
+    [disabled]="disabled"
+    [severity]="severity"
+    [size]="size"
+    [rounded]="rounded">
+  </p-button>
+}

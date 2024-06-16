@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+  FormsModule,
+} from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule, NgIf } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
@@ -20,9 +26,9 @@ import { LinkAtomComponent } from '../../components/atoms/link-atom/link-atom.co
   selector: 'app-login',
   standalone: true,
   imports: [
-    RouterModule, 
-    ReactiveFormsModule, 
-    NgIf, 
+    RouterModule,
+    ReactiveFormsModule,
+    NgIf,
     CheckboxModule,
     PasswordModule,
     ButtonModule,
@@ -35,33 +41,33 @@ import { LinkAtomComponent } from '../../components/atoms/link-atom/link-atom.co
     ButtonAtomComponent,
     FormFieldMoleculeComponent,
     FormCheckboxFieldMoleculeComponent,
-    LinkAtomComponent
+    LinkAtomComponent,
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
 })
 export class LoginComponent implements OnInit {
-
   loginForm!: FormGroup;
 
   valCheck: string[] = ['remember'];
 
   password!: string;
 
-  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private auth: AuthService,
+    private router: Router
+  ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
-      remember: [false]
-    })
+      remember: [false],
+    });
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   loginUser() {
-
     // Swal.fire({
     //   title: 'Plese wait',
     //   didOpen: () => {
@@ -70,21 +76,21 @@ export class LoginComponent implements OnInit {
     // });
     let a = 'a';
     let b = 'x';
-    console.log({a,b});
+    console.log({ a, b });
     [a, b] = [b, a];
-    console.log({a,b});
-    const {email, password} = this.loginForm.value;
+    console.log({ a, b });
+    const { email, password } = this.loginForm.value;
     // this.auth.loginUsuario(email, password).then( credentials => {
     //   console.log(credentials);
     //   // Swal.close();
-      this.router.navigate(['dashboard']);
+    this.router.navigate(['dashboard']);
     // }).
     // catch(err => {
-      // Swal.fire({
-      //   icon: "error",
-      //   title: "Oops...",
-      //   text: err.message
-      // });
+    // Swal.fire({
+    //   icon: "error",
+    //   title: "Oops...",
+    //   text: err.message
+    // });
     // })
   }
 }

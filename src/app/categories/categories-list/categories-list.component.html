@@ -1,95 +1,105 @@
-
-<div class="surface-ground justify-content-center flex min-h-screen min-w-screen overflow-hidden pt-8">
-  <div class="flex flex-column ">
+<div
+  class="surface-ground justify-content-center flex min-h-screen min-w-screen overflow-hidden pt-8">
+  <div class="flex flex-column">
     <p-toast />
-      <p-card>
-        <div class="text-center mb-5">
-            <div class="text-900 text-2xl font-medium mb-3">Categorias</div>
-            <span class="text-600 font-medium"></span>
-        </div>
+    <p-card>
+      <div class="text-center mb-5">
+        <div class="text-900 text-2xl font-medium mb-3">Categorias</div>
+        <span class="text-600 font-medium"></span>
+      </div>
 
-        <div>
-          <p-table 
+      <div>
+        <p-table
           #dt
           [rows]="10"
           [paginator]="true"
           [globalFilterFields]="['name', 'description', 'image']"
           [columns]="cols"
-          [value]="categories" 
-          responsiveLayout="stack" 
-          [breakpoint]="'960px'" 
-          [exportHeader]="'customExportHeader'" 
-          [tableStyle]="{'min-width': '50rem'}"
+          [value]="categories"
+          responsiveLayout="stack"
+          [breakpoint]="'960px'"
+          [exportHeader]="'customExportHeader'"
+          [tableStyle]="{ 'min-width': '50rem' }"
           [styleClass]="'p-datatable-sm'">
-          
-            <ng-template pTemplate="caption">
-              <div class="flex align-items-center justify-content-between">
-                <p-button 
-                  pRipple 
-                  severity="success" 
-                  label="Nuevo" 
-                  icon="pi pi-plus" 
-                  class="mr-2" 
-                  (onClick)="editCategory(null)">
+          <ng-template pTemplate="caption">
+            <div class="flex align-items-center justify-content-between">
+              <p-button
+                pRipple
+                severity="success"
+                label="Nuevo"
+                icon="pi pi-plus"
+                class="mr-2"
+                (onClick)="editCategory(null)">
+              </p-button>
+              <div class="flex gap-2">
+                <span class="p-input-icon-left">
+                  <i class="pi pi-search"></i>
+                  <input
+                    pInputText
+                    type="text"
+                    (input)="onGlobalFilter(dt, $event)"
+                    placeholder="Buscar..." />
+                </span>
+                <p-button
+                  pRipple
+                  icon="pi pi-external-link"
+                  label="Export"
+                  (onClick)="exportToExcel(dt)">
                 </p-button>
-                <div class="flex gap-2">
-                  <span class="p-input-icon-left">
-                      <i class="pi pi-search"></i>
-                      <input 
-                          pInputText 
-                          type="text" 
-                          (input)="onGlobalFilter(dt, $event)" 
-                          placeholder="Buscar..." />
-                  </span>
-                  <p-button 
+              </div>
+            </div>
+          </ng-template>
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th scope="column" *ngFor="let col of columns">
+                {{ col.header }}
+              </th>
+              <th scope="column"></th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr *ngIf="!loading">
+              <td *ngFor="let col of columns">
+                {{ rowData[col.field] }}
+              </td>
+              <td>
+                <div class="flex gap-2 justify-content-end">
+                  <p-button
                     pRipple
-                    icon="pi pi-external-link" 
-                    label="Export" 
-                    (onClick)="exportToExcel(dt)">
+                    icon="pi"
+                    [rounded]="true"
+                    severity="secondary"
+                    size="small"
+                    (onClick)="editCategory(rowData.id)">
+                    <span class="material-icons">edit</span>
+                  </p-button>
+                  <p-button
+                    pRipple
+                    icon="pi"
+                    [rounded]="true"
+                    severity="danger"
+                    size="small"
+                    (onClick)="deleteCategory(rowData)">
+                    <span class="material-icons">delete</span>
                   </p-button>
                 </div>
-              </div>
-            </ng-template>
-            <ng-template pTemplate="header" let-columns>
-                <tr>
-                  <th scope="column" *ngFor="let col of columns">
-                    {{ col.header }}
-                  </th>
-                  <th scope="column"></th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-rowData let-columns="columns">
-                <tr *ngIf="!loading">
-                  <td *ngFor="let col of columns">
-                      {{ rowData[col.field] }}
-                  </td>
-                  <td>
-                    <div class="flex gap-2 justify-content-end">
-                      <p-button pRipple icon="pi" [rounded]="true" severity="secondary" size="small" (onClick)="editCategory(rowData.id)">
-                        <span class="material-icons">edit</span>
-                      </p-button>
-                      <p-button pRipple icon="pi" [rounded]="true" severity="danger" size="small" (onClick)="deleteCategory(rowData)"  >
-                        <span class="material-icons">delete</span>
-                      </p-button>
-                    </div>
-                  </td>
-                </tr>
-                <tr *ngIf="loading">
-                  <td *ngFor="let col of columns">
-                    <p-skeleton height="2rem"></p-skeleton>
-                  </td>
-                  <td>
-                    <div class="flex gap-2 justify-content-end">
-                      <p-skeleton shape="circle" size="2.5rem"/>
-                      <p-skeleton shape="circle" size="2.5rem"/>
-                    </div>
-                  </td>
-                </tr>
-            </ng-template>
+              </td>
+            </tr>
+            <tr *ngIf="loading">
+              <td *ngFor="let col of columns">
+                <p-skeleton height="2rem"></p-skeleton>
+              </td>
+              <td>
+                <div class="flex gap-2 justify-content-end">
+                  <p-skeleton shape="circle" size="2.5rem" />
+                  <p-skeleton shape="circle" size="2.5rem" />
+                </div>
+              </td>
+            </tr>
+          </ng-template>
         </p-table>
-
-        </div>
-      </p-card>
+      </div>
+    </p-card>
   </div>
   <p-confirmDialog [style]="{ width: '450px' }" />
 </div>

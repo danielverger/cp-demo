@@ -1,8 +1,8 @@
-export interface User {
-  id:       number;
-  email:    string;
-  name:     string;
-  surname:  string;
-  type:     number;
-  isActive: boolean;
+export class User {
+  id: number = -1;
+  email: string = '';
+  name: string = '';
+  surname: string = '';
+  type: number = 0;
+  isActive: boolean = false;
 }

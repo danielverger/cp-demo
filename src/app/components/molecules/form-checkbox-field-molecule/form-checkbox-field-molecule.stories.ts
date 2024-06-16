@@ -10,7 +10,12 @@ const meta: Meta<FormCheckboxFieldMoleculeComponent> = {
   //   readonly: { control: 'boolean' },
   //   binary: { control: 'boolean' }
   // },
-  args: { labelText: 'Username', required: true, labelFor: 'checkbox', disabled: false },
+  args: {
+    labelText: 'Username',
+    required: true,
+    labelFor: 'checkbox',
+    disabled: false,
+  },
 };
 
 export default meta;
@@ -18,7 +23,7 @@ type Story = StoryObj<FormCheckboxFieldMoleculeComponent>;
 
 export const Disabled: Story = {
   args: {
-    disabled: true
+    disabled: true,
   },
 };
 
@@ -27,8 +32,3 @@ export const Disabled: Story = {
 //     // readonly: true,
 //   },
 // };
-
-
-
-
-

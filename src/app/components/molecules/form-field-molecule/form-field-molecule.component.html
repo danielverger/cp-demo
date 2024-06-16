@@ -1,21 +1,20 @@
 <div class="field">
-  <app-label-atom 
-    [text]="labelText" 
-    [forId]="labelFor" 
-    [class]="labelClass" 
+  <app-label-atom
+    [text]="labelText"
+    [forId]="labelFor"
+    [class]="labelClass"
     [required]="required">
   </app-label-atom>
-  @if(loading) {
+  @if (loading) {
     <p-skeleton height="2rem"></p-skeleton>
   } @else {
-    <app-input-atom 
-    [inputId]="labelFor" 
-    [type]="inputType" 
-    [placeholder]="inputPlaceholder" 
-    [formName]="formName"
-    [class]="inputClass"
-    [required]="required"
-    [group]="group">
+    <app-input-atom
+      [inputId]="labelFor"
+      [type]="inputType"
+      [placeholder]="inputPlaceholder"
+      [formName]="formName"
+      [class]="inputClass"
+      [group]="group">
     </app-input-atom>
   }
 </div>

@@ -1,61 +1,74 @@
-<div class="surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden">
+<div
+  class="surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden">
   <div class="flex flex-column align-items-center justify-content-center">
-      <!-- <img src="assets/layout/images/{{layoutService.config().colorScheme === 'light' ? 'logo-dark' : 'logo-white'}}.svg" alt="Sakai logo" class="mb-5 w-6rem flex-shrink-0">                 -->
-      <!-- <div style="border-radius:56px; padding:0.3rem; background: linear-gradient(180deg, var(--primary-color) 10%, rgba(33, 150, 243, 0) 80%);"> -->
-          <!-- <div class="w-full surface-card py-8 px-5 sm:px-8" style="border-radius:53px"> -->
-            <p-card>
-              <div class="text-center mb-5">
-                  <div class="text-900 text-3xl font-medium mb-3"></div>
-                  <span class="text-600 font-medium">Iniciar sesión</span>
-              </div>
+    <!-- <img src="assets/layout/images/{{layoutService.config().colorScheme === 'light' ? 'logo-dark' : 'logo-white'}}.svg" alt="Sakai logo" class="mb-5 w-6rem flex-shrink-0">                 -->
+    <!-- <div style="border-radius:56px; padding:0.3rem; background: linear-gradient(180deg, var(--primary-color) 10%, rgba(33, 150, 243, 0) 80%);"> -->
+    <!-- <div class="w-full surface-card py-8 px-5 sm:px-8" style="border-radius:53px"> -->
+    <p-card>
+      <div class="text-center mb-5">
+        <div class="text-900 text-3xl font-medium mb-3"></div>
+        <span class="text-600 font-medium">Iniciar sesión</span>
+      </div>
 
-              <div>
+      <div>
+        <!-- {{loginForm.value | json}} -->
 
-<!-- {{loginForm.value | json}} -->
+        <form [formGroup]="loginForm">
+          <!-- <label for="email1" class="block text-900 text-xl font-medium mb-2">Email</label> -->
+          <!-- <input id="email1" formControlName="email" type="text" placeholder="Email address" pInputText class="w-full md:w-30rem mb-5" style="padding:1rem"> -->
 
-                <form [formGroup]="loginForm">
-                  <!-- <label for="email1" class="block text-900 text-xl font-medium mb-2">Email</label> -->
-                  <!-- <input id="email1" formControlName="email" type="text" placeholder="Email address" pInputText class="w-full md:w-30rem mb-5" style="padding:1rem"> -->
-                  
-                  <!-- <app-label-atom labelClass="block mb-2" text="Username" forId="email1" [required]="true"></app-label-atom> -->
-                  <!-- <app-input-atom [group]="loginForm" formName="email" class="w-full md:w-30rem mb-5" id="email1" inputType="text" placeholder="Email address"/> -->
+          <!-- <app-label-atom labelClass="block mb-2" text="Username" forId="email1" [required]="true"></app-label-atom> -->
+          <!-- <app-input-atom [group]="loginForm" formName="email" class="w-full md:w-30rem mb-5" id="email1" inputType="text" placeholder="Email address"/> -->
 
+          <app-form-field-molecule
+            [labelText]="'Usuario'"
+            [labelFor]="'username'"
+            [inputPlaceholder]="'Enter username'"
+            [required]="true"
+            formName="email"
+            [group]="loginForm"></app-form-field-molecule>
 
-                <app-form-field-molecule
-                    [labelText]="'Usuario'"
-                    [labelFor]="'username'"
-                    [inputPlaceholder]="'Enter username'"
-                    [required]="true"
-                    formName="email"
-                    [group]="loginForm"
-                ></app-form-field-molecule>
+          <!-- <label for="password1" class="block text-900 font-medium text-xl mb-2">Password</label> -->
+          <app-label-atom
+            labelClass="block mb-2"
+            text="Password"
+            forId="password1"
+            [required]="true"></app-label-atom>
+          <p-password
+            [feedback]="false"
+            id="password1"
+            formControlName="password"
+            placeholder="Contraseña"
+            [toggleMask]="true"
+            styleClass="mb-5"
+            inputStyleClass="w-full p-3 md:w-30rem"></p-password>
 
-
-                  <!-- <label for="password1" class="block text-900 font-medium text-xl mb-2">Password</label> -->
-                  <app-label-atom labelClass="block mb-2"  text="Password" forId="password1" [required]="true"></app-label-atom>
-                  <p-password [feedback]="false" id="password1" formControlName="password" placeholder="Contraseña" [toggleMask]="true" styleClass="mb-5" inputStyleClass="w-full p-3 md:w-30rem"></p-password>
-
-                  <div class="flex align-items-center justify-content-between mb-5 gap-5">
-                      <!-- <div class="flex align-items-center">
+          <div
+            class="flex align-items-center justify-content-between mb-5 gap-5">
+            <!-- <div class="flex align-items-center">
                           <p-checkbox id="rememberme1" [binary]="true" styleClass="mr-2"></p-checkbox>
                           <label for="rememberme1">Remember me</label>
                       </div> -->
 
-                        <app-form-checkbox-field-molecule
-                        [labelText]="'Recordar'"
-                        [labelFor]="'rememberme1'"
-                        formName="remember"
-                        [group]="loginForm"
-                        ></app-form-checkbox-field-molecule>
+            <app-form-checkbox-field-molecule
+              [labelText]="'Recordar'"
+              [labelFor]="'rememberme1'"
+              formName="remember"
+              [group]="loginForm"></app-form-checkbox-field-molecule>
 
-                      <!-- <a class="font-medium no-underline ml-2 text-right cursor-pointer" style="color: var(--primary-color)">Forgot password?</a> -->
-                       <app-link-atom text="He olvidado la contraseña"></app-link-atom>
-                  </div>
-                  <!-- <button pButton pRipple label="Sign In" class="w-full p-3 text-xl" (click)="loginUser()"></button> -->
-                  <app-button-atom [class]="'w-full p-3'" size="large" label="Acceder" [disabled]="false" (click)="loginUser()"></app-button-atom>
-                </form>
-              </div>
-          </p-card>
-      <!-- </div> -->
+            <!-- <a class="font-medium no-underline ml-2 text-right cursor-pointer" style="color: var(--primary-color)">Forgot password?</a> -->
+            <app-link-atom text="He olvidado la contraseña"></app-link-atom>
+          </div>
+          <!-- <button pButton pRipple label="Sign In" class="w-full p-3 text-xl" (click)="loginUser()"></button> -->
+          <app-button-atom
+            [class]="'w-full p-3'"
+            size="large"
+            label="Acceder"
+            [disabled]="false"
+            (click)="loginUser()"></app-button-atom>
+        </form>
+      </div>
+    </p-card>
+    <!-- </div> -->
   </div>
 </div>

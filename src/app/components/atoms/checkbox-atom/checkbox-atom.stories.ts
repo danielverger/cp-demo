@@ -8,9 +8,9 @@ const meta: Meta<CheckboxAtomComponent> = {
   argTypes: {
     disabled: { control: 'boolean' },
     readonly: { control: 'boolean' },
-    binary: { control: 'boolean' }
+    binary: { control: 'boolean' },
   },
-  args: { disabled: false, readonly: false, binary: true},
+  args: { disabled: false, readonly: false, binary: true },
 };
 
 export default meta;
@@ -18,7 +18,7 @@ type Story = StoryObj<CheckboxAtomComponent>;
 
 export const Disabled: Story = {
   args: {
-    disabled: true
+    disabled: true,
   },
 };
 
@@ -27,8 +27,3 @@ export const Readonly: Story = {
     readonly: true,
   },
 };
-
-
-
-
-

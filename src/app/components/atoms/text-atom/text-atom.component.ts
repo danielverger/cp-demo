@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './text-atom.component.html',
-  styleUrl: './text-atom.component.scss'
+  styleUrl: './text-atom.component.scss',
 })
-export class TextAtomComponent {
-
-}
+export class TextAtomComponent {}

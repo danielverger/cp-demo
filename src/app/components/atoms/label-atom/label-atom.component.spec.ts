@@ -8,10 +8,9 @@ describe('LabelAtomComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LabelAtomComponent]
-    })
-    .compileComponents();
-    
+      imports: [LabelAtomComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(LabelAtomComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
